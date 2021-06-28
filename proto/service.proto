@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "model.proto";
+
+package heek.lihee;
+
+service Search {
+  rpc GetBooks(GetBooksPayload) returns (stream Book) {}
+}
+
+message GetBooksPayload {
+  string keyword = 1;
+  repeated string libraries = 2;
+  Geo location = 10;
+}
